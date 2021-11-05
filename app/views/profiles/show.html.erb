@@ -1,2 +1,17 @@
-<h1>Profiles#show</h1>
-<p>Find me in app/views/profiles/show.html.erb</p>
+<h1>Welccome to <%= @user.username.capitalize %>'s Profile</h1>
+
+
+<h3>List of events that <%= @user.username.capitalize =%> has created!</h3>
+
+<ul>
+ <% @user.created_events.each do |event| %>
+  <li>
+    <%= event.name %>
+    <ul>
+      <%= event.description %>
+      <%= event.location %>
+      <%= event.date %>
+    </ul>
+  </li>
+  <% end %>
+</ul>

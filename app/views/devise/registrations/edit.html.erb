@@ -27,6 +27,11 @@
   </div>
 
   <div class="field">
+    <%= f.label :location %><br/>
+    <%= f.select :location, options_for_select(us_states), autocomplete: "location" %>
+  </div>
+
+  <div class="field">
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
