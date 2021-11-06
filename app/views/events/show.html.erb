@@ -6,3 +6,16 @@
   <li>  <%= @event.location %> </li>
   <li>  <%= @event.event_date %> </li>
 </ul>
+
+
+   <%= button_to "sign up", signups_path(event_id: @event.id) %>
+  
+<ul>
+ <% @signups.each do |signup| %>
+  <li>
+    <a href="/profile/<%= signup.attendee_id %>">
+      <%= signup.attendee_id %>
+    </a>
+  </li>
+  <% end %>
+</ul>
