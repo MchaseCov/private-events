@@ -6,21 +6,20 @@ header {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #242424;
-  }
-  li {
-    display:inline-block
+    background-color: var(--black);
   }
   li a {
     display: block;
-    color: #eeeeee;
+    color: var(--grey);
     padding: 8px;
     text-align: center;
     text-decoration: none;
-    font-size: large;
-    font-family: sans-serif;
+    font-size: 32px;
+    font-size: 2vw;
+    font-weight: 700;
   }
   li a:hover {
-    background-color: #111111;
+    background-color: var(--pink);
+    color: var(--black);
   }
 }
