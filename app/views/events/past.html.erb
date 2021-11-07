@@ -1,4 +1,13 @@
-<h1>Archive of all events that have passed.</h1>
-<h3>Check out our list of <%= link_to "upcoming events", events_path %> for events coming soon!</h3>
-
-<%= render "event_list", events: @events %>
+<%= render "layouts/teleprompter" %>
+  <h2>Archived Events<h2>
+  <h3>Archive of all events that have passed. <br> You can no longer sign up for these, but you can check our what's been going on in your area!</h3>
+</div>
+<div class="mini-header">
+  <h2>Check out our list of <%= link_to "upcoming events", events_path %> for events coming soon!</h2>
+</div>
+<div class="main-content">
+  <h3>List of all archived events!</h3>
+  <div>
+    <%= render "event_list", events: @events %>
+  </div>
+</div>
