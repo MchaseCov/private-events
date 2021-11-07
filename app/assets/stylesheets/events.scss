@@ -1,3 +1,42 @@
 // Place all the styles related to the Events controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+input[type=submit]{
+  background-color: var(--pink);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 1em;
+  color: var(--grey);
+  cursor: pointer;
+}
+
+select{
+  width: 115px;
+  transition: width 0.4s ease-in-out;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 1em;
+  padding: 8px;
+  border: none;
+  border-radius: 4px;
+  background-color: var(--grey);
+  cursor: pointer;
+}
+
+label{
+  font-weight: 400;
+  font-size: 1em;
+  color: var(--grey);
+}
+
+select:focus{
+    width: 225px;
+}
+
+.filter-events{
+  margin-top: auto;
+}
+
+
+.index-grid {
