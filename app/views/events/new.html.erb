@@ -1,3 +1,22 @@
-<h2>Create a new event!</h2>
 
-<%= render "form", event: @event %>
+<%= render "layouts/teleprompter" %>
+    <h2>Create a new event!</h2>
+    <h3>On this page you can create a new event for others to check out and sign up.</h3>
+</div>
+
+<div class="mini-header">
+    <h2>Tips for making your event great!</h2>
+    <ul class="tips">
+      <li>Make sure the title clearly describes the event.</li>
+      <li>Give an exciting description! Make sure to include information about the venue, refreshments, and directions if needed.</li>
+      <li>Make sure your event's date and time is accurate!</li>
+      <li>You can always go back and edit a mistake if needed.</li>
+    </ul>
+</div>
+
+<div class="main-content">
+    <h3>Form for event creation:</h3>
+    <div class="new-event-form">
+      <%= render "form", event: @event %>
+    </div>
+</div>
