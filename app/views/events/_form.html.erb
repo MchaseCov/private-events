@@ -1,5 +1,16 @@
 <%= form_for event do |f| %>
 
+  <div class="form-errors">
+    <% if event.errors.any? %>
+      <ul>
+        <li>Oops, some errors prevented your event from being submitted.</li>
+        <% event.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+
   <div class="field">
     <%= f.label :name %><br/>
     <%= f.text_field :name, autofocus: true %>
@@ -25,16 +36,5 @@
   <div class="actions">
     <%= f.submit "Submit!!" %>
   </div>
-
-  <div>
-    <% if event.errors.any? %>
-    <ul>
-      <% event.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-    </ul>
-    <% end %>
-  </div>
-
 <% end %>
 
