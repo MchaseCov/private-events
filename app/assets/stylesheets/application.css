@@ -30,5 +30,85 @@
 }
 
  body {
-  font-family: Sans-Serif;
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.site-grid {
+  display: grid;
+  min-height: 100vh;
+  grid-template-columns: 0.5fr 1fr 1fr;
+  grid-template-rows: auto auto 1fr;
+  gap: 0em 0em;
+  grid-auto-flow: row;
+  grid-template-areas:
+  "header-sidebar teleprompter teleprompter"
+  "header-sidebar mini-header mini-header"
+  "header-sidebar main-content main-content";
+  justify-items: stretch;
+}
+
+
+.mini-header {
+  grid-area: mini-header;
+  background-image: linear-gradient(90deg, var(--purple), var(--blue));
+  color: var(--grey);
+  padding-left: 16px;
+  padding-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
+}
+.mini-header a{
+  color: var(--pink);
+}
+.mini-header h2{
+  padding-top:8px;
+  margin:0;
+  padding-bottom: 1em;
+}
+
+.main-content {
+  grid-area: main-content;
+  background-image: linear-gradient(90deg, var(--light-blue), var(--blue));
+  background-color: var(--blue);
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.teleprompter {
+  grid-area: teleprompter;
+  background-image: linear-gradient(90deg, var(--light-blue), var(--blue));
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
+  text-align: left;
+  margin: 0%;
+  padding-left: 16px;
+}
+
+.teleprompter h1{
+  margin: 0%;
+}
+.teleprompter h2{
+  margin: 0%;
+  font-weight: 500;
+  font-size: 1.5em;
+  margin-top: auto;
+}
+.teleprompter h3{
+  font-weight: 300;
+  font-size: 1.25em;
+}
+  .teleprompter p{
+  margin: 0%;
+  padding-bottom: 3em;
+}
+
+.header-sidebar {
+  grid-area: header-sidebar;
+  background-color: var(--black)
+}
+
 }
