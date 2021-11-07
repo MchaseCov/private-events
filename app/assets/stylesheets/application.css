@@ -23,6 +23,12 @@
   --black: #14110F;
   --grey: #EDF6FF;
 }
+
+.warnings{
+  margin: 0;
+  padding: 0;
+}
+
  body {
   font-family: Sans-Serif;
 }
