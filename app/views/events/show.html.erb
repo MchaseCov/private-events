@@ -1,3 +1,4 @@
+
 <h1><%= @event.name.capitalize %></h1>
 
 <ul>
@@ -7,15 +8,19 @@
   <li>  <%= @event.event_date %> </li>
 </ul>
 
-
-   <%= button_to "sign up", signups_path(event_id: @event.id) %>
+<% if  user_signed_in? && Signup.exists?(attendee_id: current_user.id, attended_event_id: @event.id) %>
+  <%= button_to 'Unattend this event.', signup_remove_path(event_id: @event.id) %>
+<% else %>
+  <%= button_to "Sign up for this event!", signups_path(event_id: @event.id) %>
+<% end %>
   
-<ul>
- <% @signups.each do |signup| %>
+Attending this event:
+ <ul>
+  <% @event.attendees.each do |attendee| %>
   <li>
-    <a href="/profile/<%= signup.attendee_id %>">
-      <%= signup.attendee_id %>
+    <a href="/profiles/<%= attendee.id %>">
+      <%= attendee.username.capitalize %>
     </a>
   </li>
-  <% end %>
-</ul>
+  <ul>
+<% end %>
