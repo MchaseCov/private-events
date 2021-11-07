@@ -1,0 +1,19 @@
+<div class="index-grid">
+  <% user.created_events.each do |event| %>
+    <div class="event-column">
+      <li class="index-grid-list">
+        <a href="/events/<%= event.id %>" class="index-grid-event-title">
+          <%= event.name.capitalize %>
+        </a>
+        <ul class="index-grid-sublist">
+          <li>Located at <%= event.location %> <%= event.event_date.strftime("on %m-%d-%Y, at %H:%M") %></li>
+          <% if @user == current_user%>
+            <li>
+              <%= button_to 'Unattend this event.', signup_remove_path(event_id: event.id) %>
+            </li>
+          <% end %>
+        </ul>
+      </li>
+    </div>
+  <% end %>
+</div>
