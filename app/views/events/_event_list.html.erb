@@ -1,14 +1,16 @@
-<ul>
- <% events.each do |event| %>
-  <li>
-    <a href="/events/<%= event.id %>">
-      <%= event.name %>
-    </a>
-    <ul>
-      <li>Hosted by <a href="/profiles/<%= event.creator_id %>"> 
-        <%= event.creator.username.capitalize %> </a> </li>
-      <li> in <%= event.location %> on <%= event.event_date %></li>
-    </ul>
-  </li>
+<div class="index-grid">
+  <% events.order(:event_date).each do |event| %>
+    <div class="event-column">
+      <li class="index-grid-list">
+        <a href="/events/<%= event.id %>" class="index-grid-event-title">
+          <%= event.name %>
+        </a>
+        <ul class="index-grid-sublist">
+          <li>Hosted by <a href="/profiles/<%= event.creator_id %>" class="index-grid-event-creator"> 
+            <%= event.creator.username.capitalize %> </a></li>
+          <li> in <%= event.location %> <%= event.event_date.strftime("on %m-%d-%Y, at %H:%M") %></li>
+        </ul>
+      </li>
+    </div>
   <% end %>
-</ul>
+</div>
