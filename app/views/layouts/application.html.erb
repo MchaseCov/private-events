@@ -12,13 +12,18 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;700;800;900&display=swap" rel="stylesheet">
     </head>
-  <header class="header">
-    <div><%= render "layouts/header" %></div> <br> 
-  </header>
-  <div>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+  <div class="site-grid">
+    <header class="header-sidebar">
+      <div class="header"><%= render "layouts/header" %></div>
+    </header>
+    <body>
+        <% unless notice.nil? %>
+          <p class="notice"><%= notice %></p>
+        <% end %>
+        <% unless alert.nil? %>
+          <p class="alert"><%= alert %></p>
+        <% end %>
+     <%= yield %>
+    </body>
   </div>
-    <%= yield %>
-  </body>
 </html>
