@@ -111,4 +111,28 @@
   background-color: var(--black)
 }
 
+h1{
+  font-weight: 900;
+  font-size: 4em;
+  color: var(--grey);
+}
+h2{
+  font-weight: 700;
+  font-size: 2em;
+  color: var(--grey);
+}
+h3{
+  font-weight: 500;
+  font-size: 2em;
+  color: var(--grey);
+}
+p{
+  font-weight: 300;
+  font-size: 1.25em;
+  color: var(--grey);
+}
+.thin{
+  font-weight: 100;
+  font-size: 1em;
+  color: var(--grey);
 }
