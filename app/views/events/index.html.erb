@@ -1,4 +1,14 @@
-<h1>List of all upcoming events!</h1>
-<h3>Missed out? Check our <%= link_to "past events", events_past_path %> for events that have already occured.</h3>
-<%= render "search" %>
-<%= render "event_list", events: @events %>
+<%= render "layouts/teleprompter" %>
+  <h2>Home Page<h2>
+  <h3>Here at MakeItHappen.com, you are in charge! <br> Create a list for your next hit event, share all the exciting details, set a date, and invite all of your friends to come along!</h3>
+</div>
+<div class="mini-header">
+  <h2>Missed out? Check our <%= link_to "past events", events_past_path %> for events that have already occured.</h2>
+  <%= render "search" %>
+</div>
+<div class="main-content">
+  <h3>List of all upcoming events!</h3>
+  <div>
+    <%= render "event_list", events: @events %>
+  </div>
+</div>
