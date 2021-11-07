@@ -14,6 +14,15 @@
  *= require_self
  */
 
+ :root {
+  --pink: #Ed3d63;
+  --blue: #223CCf;
+  --light-blue: #0683D7;
+  --indigo: #161B7f;
+  --purple: #8d3fd0;
+  --black: #14110F;
+  --grey: #EDF6FF;
+}
  body {
   font-family: Sans-Serif;
 }
