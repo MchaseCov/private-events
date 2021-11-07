@@ -12,4 +12,12 @@ class Event < ApplicationRecord
   # Validations
   validates :name, :description, :event_date, :location, presence: true
 
+  # Search function
+  def self.search(search)
+    if search
+      Event.where(location: search)
+    else
+      Event.all
+    end
+  end
 end

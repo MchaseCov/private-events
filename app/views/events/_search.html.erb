@@ -1,0 +1,5 @@
+<%= form_with url: events_path, method: :get do |f| %>
+  <%= f.label :search, "Filter by state:" %>
+  <%= f.select :search, options_for_select(us_states) %>
+  <%= f.submit "Search" %>
+<% end %>

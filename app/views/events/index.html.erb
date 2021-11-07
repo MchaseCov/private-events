@@ -1,3 +1,4 @@
 <h1>List of all upcoming events!</h1>
-
+<h3>Missed out? Check our <%= link_to "past events", events_past_path %> for events that have already occured.</h3>
+<%= render "search" %>
 <%= render "event_list", events: @events %>

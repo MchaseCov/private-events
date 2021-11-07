@@ -1,8 +1,11 @@
 class EventsController < ApplicationController
   def index
-    @events = Event.upcoming.all
+    @events = Event.upcoming.search(params[:search])
+    return if params[:search].nil?
+
+    flash.now[:notice] = "Now only showing events located in #{params[:search]}!"
   end
-  
+
   def past
     @events = Event.past.all
   end
@@ -30,6 +33,6 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:name, :description, :event_date, :location, :creator_id)
+    params.require(:event).permit(:name, :description, :event_date, :location, :creator_id,:search)
   end
 end
