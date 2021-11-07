@@ -40,3 +40,53 @@ select:focus{
 
 
 .index-grid {
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(0.5fr, 0.5fr)); 
+  grid-template-rows: repeat(auto-fit, minmax(1fr, 1fr)); 
+  gap: 1em 1em; 
+  grid-template-areas: 
+    ". . ."
+    ". . ."
+    ". . ."; 
+  grid-area: main-content;
+}
+.index-grid-list {
+  width: 100%;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: var(--grey);
+  font-weight: 300;
+  opacity:.5;
+}
+.index-grid-list:hover{
+  opacity: 1;
+}
+
+.index-grid-list a {
+  color: var(--pink);
+}
+.index-grid-sublist {
+  display: block;
+  color: var(--black);
+  padding: 8px;
+  text-align: left;
+  text-decoration: none;
+  font-size: 1.25em;
+  color: var(--indigo);
+}
+
+.index-grid-event-title {
+  font-size: 2.5em;
+  font-weight: 700;
+  text-decoration: underline;
+  padding: 8px;
+}
+.index-grid-event-creator {
+  font-weight: 500;
+}
+
+.event-column{
+background-color: var(--grey);
+}
