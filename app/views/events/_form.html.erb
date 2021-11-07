@@ -1,0 +1,40 @@
+<%= form_for event do |f| %>
+
+  <div class="field">
+    <%= f.label :name %><br/>
+    <%= f.text_field :name, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %><br/>
+    <%= f.text_field :description, size: "70x5" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :location %><br/>
+    <%= f.select :location, options_for_select(us_states) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :event_date %><br/>
+    <%= f.datetime_local_field :event_date %>
+  </div>
+  
+  <%= f.hidden_field :creator_id, value: @user.id %>
+
+  <div class="actions">
+    <%= f.submit "Submit!!" %>
+  </div>
+
+  <div>
+    <% if event.errors.any? %>
+    <ul>
+      <% event.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+    <% end %>
+  </div>
+
+<% end %>
+
