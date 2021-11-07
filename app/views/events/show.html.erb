@@ -5,16 +5,21 @@
   <li> <%= @event.creator.username.capitalize %> </li>
   <li> <%= @event.description %> </li>
   <li>  <%= @event.location %> </li>
-  <li>  <%= @event.event_date %> </li>
+  <li>  <%= @event.event_date.strftime("On %m-%d-%Y, at %H:%M")  %> </li>
 </ul>
-
-<% if  user_signed_in? && Signup.exists?(attendee_id: current_user.id, attended_event_id: @event.id) %>
-  <%= button_to 'Unattend this event.', signup_remove_path(event_id: @event.id) %>
+<% if @event.event_date.past? %>
+  <p> This event has passed and you can no longer sign up. <p>
+  <p> Here is a list of users who attended this event <p>
 <% else %>
-  <%= button_to "Sign up for this event!", signups_path(event_id: @event.id) %>
+  <% if  user_signed_in? && Signup.exists?(attendee_id: current_user.id, attended_event_id: @event.id) %>
+    <%= button_to 'Unattend this event.', signup_remove_path(event_id: @event.id) %>
+  <% else %>
+    <%= button_to "Sign up for this event!", signups_path(event_id: @event.id) %>
+  <% end %>
+
+  <p> Attending this event: </p>
+
 <% end %>
-  
-Attending this event:
  <ul>
   <% @event.attendees.each do |attendee| %>
   <li>

@@ -1,0 +1,14 @@
+<ul>
+ <% events.each do |event| %>
+  <li>
+    <a href="/events/<%= event.id %>">
+      <%= event.name %>
+    </a>
+    <ul>
+      <li>Hosted by <a href="/profiles/<%= event.creator_id %>"> 
+        <%= event.creator.username.capitalize %> </a> </li>
+      <li> in <%= event.location %> on <%= event.event_date %></li>
+    </ul>
+  </li>
+  <% end %>
+</ul>

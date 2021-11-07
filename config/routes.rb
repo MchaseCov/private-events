@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root 'events#index'
   devise_for :users
   resources :events
+  match '/archive' => 'events#past', via: :get, as: :events_past
   resources :signups, only: [:create, :destroy, :update]
   match '/remove' => 'signups#remove', via: :post, as: :signup_remove
   resources :profiles

@@ -1,4 +1,8 @@
 class Event < ApplicationRecord
+  # Scopes
+
+  scope :past, -> { where('event_date < ?', DateTime.current) }
+  scope :upcoming, -> { where('event_date >= ?', DateTime.current) }
   # Associations
 
   belongs_to :creator, class_name: 'User'
