@@ -1,48 +1,31 @@
-<% if @user == current_user%>
-  <h1>Welcome to your profile, <%= @user.username.capitalize %>!</h1>
-<% else %>
-  <h1>Welcome to <%= @user.username.capitalize %>'s profile!</h1>
-<% end %>
-
-
-<% if @user == current_user%>
-  <h3>Here are all the events you have created.</h3>
-<% else %>
-  <h3>Here are all of the events that <%= @user.username.capitalize %> has created!</h3>
-<% end %>
-
-<ul>
- <% @user.created_events.each do |event| %>
-  <li>
-    <a href="/events/<%= event.id %>">
-      <%= event.name.capitalize %>
-    </a>
-  </li>
+<%= render "layouts/teleprompter" %>
+  <% if @user == current_user%>
+    <h2>Welcome to your profile, <%= @user.username.capitalize %>!</h2>
+    <h3>From here, other users can see what events you have created and signed up for.</h3>
+  <% else %>
+    <h2>Welcome to <%= @user.username.capitalize %>'s profile!</h2>
+    <h3>Check out all the events that <%= @user.username.capitalize %> has created and signed up for.</h3>
   <% end %>
-</ul>
+</div>
 
-<% if @user == current_user%>
-  <h3>Here are all the events you are attending.</h3>
-<% else %>
-  <h3>Here are all of the events that <%= @user.username.capitalize %> is attending!</h3>
-<% end %>
+<div class="mini-header">
+  <% if @user == current_user%>
+    <h2>Here are all the events you have created.</h2>
+  <% else %>
+    <h2>Here are all of the events that <%= @user.username.capitalize %> has created!</h2>
+  <% end %>
+  <div>
+    <%= render "created_event_list", user: @user %>
+  </div>
+</div>
 
- <ul>
-  <% @user.attended_events.each do |event| %>
-  <li>
-    <a href="/events/<%= event.id %>">
-      <%= event.name.capitalize %>
-    </a>
-      <ul>
-        <li>
-          <%= event.event_date.strftime("On %m-%d-%Y, at %H:%M")  %>
-        </li>    
-        <% if @user == current_user%>
-          <li>
-            <%= button_to 'Unattend this event.', signup_remove_path(event_id: event.id) %>
-          </li>
-      <ul>
-    <% end %>
-  </li>
-  </ul>
-<% end %>
+<div class="main-content">
+  <% if @user == current_user%>
+    <h3>Here are all the events you are attending.</h3>
+  <% else %>
+    <h3>Here are all of the events that <%= @user.username.capitalize %> is attending!</h3>
+  <% end %>
+  <div>
+    <%= render "attended_event_list", user: @user %>
+  </div>
+</div>
