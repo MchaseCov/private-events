@@ -14,8 +14,7 @@ input[type=submit]{
 }
 
 select{
-  width: 115px;
-  transition: width 0.4s ease-in-out;
+  width: 225px;
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
   font-size: 1em;
@@ -30,10 +29,6 @@ label{
   font-weight: 400;
   font-size: 1em;
   color: var(--grey);
-}
-
-select:focus{
-    width: 225px;
 }
 
 .filter-events{
