@@ -1,0 +1,11 @@
+<div class="index-grid">
+  <% event.attendees.each do |attendee| %>
+    <div class="event-column">
+      <li class="index-grid-list" style="text-align: center">
+        <a href="/profiles/<%= attendee.id %>">
+        <%= attendee.username.capitalize %>
+        </a>
+      </li>
+    </div>
+  <% end %>
+</div>
