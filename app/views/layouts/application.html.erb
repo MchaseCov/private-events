@@ -17,12 +17,6 @@
       <div class="header"><%= render "layouts/header" %></div>
     </header>
     <body>
-        <% unless notice.nil? %>
-          <p class="notice"><%= notice %></p>
-        <% end %>
-        <% unless alert.nil? %>
-          <p class="alert"><%= alert %></p>
-        <% end %>
      <%= yield %>
     </body>
   </div>
