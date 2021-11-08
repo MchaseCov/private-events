@@ -1,4 +1,15 @@
-<h2>Log in</h2>
+<%= render "layouts/teleprompter" %>
+    <h2>Sign In</h2>
+    <h3>Welcome back to Make It Happen! Have you planned the next big event?</h3>
+</div>
+
+<div class="mini-header">
+    <h2>Forgot your password?</h2>
+    <p>So did we! Sorry, password recovery emails are not availible at this time.</p>
+</div>
+
+<div class="main-content">
+  <h3>Log in:</h3>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
@@ -22,5 +33,3 @@
     <%= f.submit "Log in" %>
   </div>
 <% end %>
-
-<%= render "devise/shared/links" %>

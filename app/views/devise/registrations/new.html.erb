@@ -1,39 +1,51 @@
-<h2>Sign up</h2>
+<%= render "layouts/teleprompter" %>
+    <h2>Signup page</h2>
+    <h3>We're happy to have you! Just fill out the form below and you're on your way to being a Make It Happen pro!</h3>
+</div>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+<div class="mini-header">
+    <h2>Don't worry, you can edit these settings later!</h2>
+    <p>(Just spoof the email field by including anything with a @ in the middle, such as user@fakemail.com)</p>
+</div>
 
-  <div class="field">
-    <%= f.label :username %><br/>
-    <%= f.text_field :username, autofocus: true, autocomplete: "username" %>
-  </div>
+<div class="main-content">
+  <h3>Edit your user profile information</h3>
 
-  <div class="field">
-    <%= f.label :email %><br/>
-    <%= f.email_field :email, autocomplete: "email" %>
-  </div>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+    <div class="field">
+      <%= f.label :username %><br/>
+      <%= f.text_field :username, autofocus: true, autocomplete: "username" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br/>
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+    <div class="field">
+      <%= f.label :email %><br/>
+      <%= f.email_field :email, autocomplete: "email" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :location %><br/>
-    <%= f.select :location, options_for_select(us_states) %>
-  </div>
-  
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-  
-<%= render "devise/shared/links" %>
+    <div class="field">
+      <%= f.label :password %>
+      <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %><br />
+      <%= f.password_field :password, autocomplete: "new-password" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password_confirmation %><br/>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :location %><br/>
+      <%= f.select :location, options_for_select(us_states) %>
+    </div>
+    
+    <div class="actions">
+      <%= f.submit "Sign up" %>
+    </div>
+  <% end %>
+    
+  <h3>Instead, you can <%= render "devise/shared/links" %></h3>
+</div>
