@@ -1,3 +1,18 @@
-<h2>This page is to edit your event, <%= @event.name %></h2>
 
-<%= render "form", event: @event %>
+<%= render "layouts/teleprompter" %>
+    <h2>Edit your event</h2>
+    <h3>On this page you can edit your event information.</h3>
+</div>
+
+<div class="mini-header">
+  <h2>You are editing the event "<span class="searched-name"><%= @event.name %></span>":</h2>
+  <h2>Current event description:</h2>
+  <p><%= @event.description %></p>
+</div>
+
+<div class="main-content">
+    <h3>Form for event editing:</h3>
+    <div class="edit-event-form">
+      <%= render "form", event: @event %>
+    </div>
+</div>
