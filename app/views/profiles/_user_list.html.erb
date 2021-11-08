@@ -1,0 +1,11 @@
+<div class ="index-grid">
+  <% users.each do |user| %>
+    <div class="event-column">
+      <li class="index-grid-list",  style="text-align: center">
+        <a href="/profiles/<%= user.id %>"  class="index-grid-event-title">
+          <%= user.username.capitalize %>
+        </a>
+      </li>
+    </div>
+  <% end %>
+</div>
