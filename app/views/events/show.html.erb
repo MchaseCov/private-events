@@ -1,5 +1,5 @@
 <%= render "layouts/teleprompter" %>
-    <h2>Event page for: <%= @event.name.capitalize %></h2>
+    <h2>Event page for: <%= @event.name.titleize %></h2>
     <h3>
       <% if  user_signed_in? && @event.creator_id == current_user.id%>
         <% if @event.event_date.past? %>

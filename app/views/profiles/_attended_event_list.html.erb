@@ -3,7 +3,7 @@
     <div class="event-column">
       <li class="index-grid-list">
         <a href="/events/<%= event.id %>" class="index-grid-event-title">
-          <%= event.name.capitalize %>
+          <%= event.name.titleize %>
         </a>
         <ul class="index-grid-sublist">
           <li>Located at <%= event.location %> <%= event.event_date.strftime("on %m-%d-%Y, at %H:%M") %></li>
