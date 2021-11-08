@@ -1,48 +1,50 @@
+<%= render "layouts/teleprompter" %>
+    <h2>Event page for: <%= @event.name.capitalize %></h2>
+    <h3>
+      <% if  user_signed_in? && @event.creator_id == current_user.id%>
+        <% if @event.event_date.past? %>
+          <h3>This was your event! Since it has passed, you can no longer edit it You can still delete it though!</h3>
+        <% else %>
+          <h3>This is your event! You can edit or delete it from here. Other users can sign up to attend.</h3>
+            <%= button_to "Edit Event", edit_event_path(@event),  method: :get %>
+        <% end %>
+          <%= button_to "Delete Event", event_path(@event),
+                method: :delete,
+                data: { confirm: "Are you sure? Once deleted, your event will be gone forever!!" } %>
+        <% else %>
+          <h3>This event is being hosted by <a href="/profiles/<%= @event.creator_id %>"><%= @event.creator.username.capitalize %></a>.</h3>
+      <% end %>
+    </h3>
+</div>
 
-<h1>Event page for: <%= @event.name.capitalize %></h1>
-<% if  user_signed_in? && @event.creator_id == current_user.id%>
-  <h3>This is your event! You can edit or delete it from here. Other users can sign up to attend.</h3>
-  <ul>
-  <li><%= link_to "Edit", edit_event_path(@event) %></li>
-  <li><%= link_to "Destroy", event_path(@event),
-                  method: :delete,
-                  data: { confirm: "Are you sure? Once deleted, your event will be gone forever!!" } %></li>
-</ul>
-<% else %>
-  <h3>This event is being hosted by <a href="/profiles/<%= @event.creator_id %>"><%= @event.creator.username.capitalize %></a>.</h3>
-<% end %>
-
-<div>
-  <h3>About the event:</h3>
+<div class="mini-header">
+  <h2>Description about the event:</h2>
   <p> <%= @event.description %> </p>
-  <h3> The event is taking place at <a href="http://google.com/maps/dir//<%= @event.location %>" target="_blank">
-                                                                        <%= @event.location %></a>
-    <%= @event.event_date.strftime("On %m-%d-%Y, at %H:%M") %> </h3>
-</div>
-
-<div>
-  <% if @event.event_date.past? %>
-    <p> This event has passed and you can no longer sign up. <p>
-    <p> Here is a list of users who attended this event <p>
-  <% else %>
-    <% if  user_signed_in? && Signup.exists?(attendee_id: current_user.id, attended_event_id: @event.id) %>
-      <%= button_to 'Unattend this event.', signup_remove_path(event_id: @event.id) %>
+  <h2>
+    <% if @event.event_date.past? %>
+      The event has passed, but took place at
     <% else %>
-      <%= button_to "Sign up for this event!", signups_path(event_id: @event.id) %>
+      This event is taking place at
     <% end %>
-
-    <p> Attending this event: </p>
-
-  <% end %>
+    <a href="http://google.com/maps/dir//<%= @event.location %>" target="_blank">
+                                                                          <%= @event.location %></a>
+      <%= @event.event_date.strftime("On %m-%d-%Y, at %H:%M") %>
+  </h2>
 </div>
-<div>
- <ul>
-  <% @event.attendees.each do |attendee| %>
-  <li>
-    <a href="/profiles/<%= attendee.id %>">
-      <%= attendee.username.capitalize %>
-    </a>
-  </li>
-  <ul>
-<% end %>
+
+<div class="main-content">
+  <div>
+    <% if @event.event_date.past? %>
+      <p> This event has passed and you can no longer sign up. <p>
+      <p> Here is a list of users who attended this event: <p>
+    <% else %>
+      <% if  user_signed_in? && Signup.exists?(attendee_id: current_user.id, attended_event_id: @event.id) %>
+        <%= button_to 'Unattend this event.', signup_remove_path(event_id: @event.id) %>
+      <% else %>
+        <%= button_to "Sign up for this event!", signups_path(event_id: @event.id) %>
+      <% end %>
+      <p> Attending this event: </p>
+    <% end %>
+  </div>
+  <%= render "event_attendees", event: @event %>
 </div>
