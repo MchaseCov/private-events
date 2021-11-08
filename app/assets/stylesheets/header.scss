@@ -17,9 +17,11 @@ header {
     font-size: 32px;
     font-size: 2vw;
     font-weight: 700;
+    text-shadow: -1px -1px 0 var(--indigo), 1px -1px 0 var(--indigo), -1px 1px 0 var(--indigo), 1px 1px 0 var(--indigo);
   }
   li a:hover {
     background-color: var(--pink);
     color: var(--black);
+    text-shadow: none;
   }
 }
