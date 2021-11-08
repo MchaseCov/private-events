@@ -9,6 +9,8 @@ input[type=submit]{
   font-size: 1em;
   color: var(--grey);
   cursor: pointer;
+  margin-bottom: 4px;
+  margin-top: 4px
 }
 
 select{
@@ -114,7 +116,9 @@ background-color: var(--grey);
     width: 50%;
     padding: 12px 20px;
     margin: 8px 0;
-    display:inline-block
+    display:inline-block;
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--grey);
 }
 
 #new_event input[text]{
@@ -145,3 +149,22 @@ background-color: var(--grey);
   cursor: pointer;
   margin: 8px 0;
 }
+
+.edit_event input{
+  font-weight: 500;
+  font-size: 1;
+  color: var(--black);
+  background-color: var(--grey);
+  font-family: 'Montserrat', sans-serif;
+}
+
+.edit_event input[type=submit]{
+  background-color: var(--pink);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 2em;
+  color: var(--grey);
+  cursor: pointer;
+  margin: 8px 0;
+}
+

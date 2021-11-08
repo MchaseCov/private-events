@@ -31,6 +31,7 @@ class EventsController < ApplicationController
 
   def edit
     authenticate_id
+    authenticate_event_date
   end
 
   def update
@@ -57,7 +58,14 @@ class EventsController < ApplicationController
   def authenticate_id
     return if @user.id == @event.creator_id
 
-    flash[:error] = 'Only the creator of this event can make changes.'
+    flash[:alert] = 'Only the creator of this event can make changes.'
+    redirect_to event_path(@event)
+  end
+
+  def authenticate_event_date
+    return if @event.event_date > DateTime.current
+
+    flash[:alert] = 'Sorry, since this event has passed you can no longer edit it.'
     redirect_to event_path(@event)
   end
 
