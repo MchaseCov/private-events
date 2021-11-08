@@ -153,3 +153,38 @@ p{
 .searched-name{
   color: var(--pink);
 }
+i{
+  font-weight: 100;
+  font-size: 1em;
+  color: var(--grey);
+}
+em{
+  font-weight: 100;
+  font-size: 1em;
+  color: var(--grey);
+}
+
+#edit_user{
+  font-weight: 500;
+  font-size: 1;
+  color: var(--grey);
+}
+
+#edit_user input[text]{
+  background-color: var(--grey);
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display:inline-block;
+  font-family: 'Montserrat', sans-serif;
+}
+
+#edit_user input[type=submit]{
+  background-color: var(--pink);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 2em;
+  color: var(--grey);
+  cursor: pointer;
+  margin: 8px 0;
+}
