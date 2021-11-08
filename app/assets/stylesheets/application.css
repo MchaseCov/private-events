@@ -150,3 +150,6 @@ p{
   color: var(--pink);
   margin: 0%;
 }
+.searched-name{
+  color: var(--pink);
+}

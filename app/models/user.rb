@@ -14,4 +14,13 @@ class User < ApplicationRecord
   validates :username, :email, :location, presence: true
 
   attr_writer :login
+
+  # Search function
+  def self.search(search)
+    if search
+      User.where("username~* ?", search)
+    else
+      User.all
+    end
+  end
 end

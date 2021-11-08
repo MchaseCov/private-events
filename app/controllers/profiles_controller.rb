@@ -1,6 +1,7 @@
 class ProfilesController < ApplicationController
   def index
-    @users = User.all
+    @users = User.all.search(params[:search])
+    return if params[:search].nil?
   end
 
   def show

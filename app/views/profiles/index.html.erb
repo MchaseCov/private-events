@@ -1,10 +1,18 @@
-<h1>List of all user profiles!</h1>
-<ul>
- <% @users.each do |user| %>
-  <li>
-    <a href="/profiles/<%= user.id %>">
-      <%= user.username.capitalize %>
-    </a>
-  </li>
+<%= render "layouts/teleprompter" %>
+    <h2>List of all user profiles!</h2>
+    <h3>Here you can find the profile of all users on the site! </h3>
+</div>
+
+<div class="mini-header">
+    <h2>Looking for a specific user? Use the search below!</h2>
+  <%= render "search" %>
+</div>
+
+<div class="main-content">
+  <% if params[:search].nil? %>
+    <h3>List of all user profiles:</h3>
+  <% else %>
+    <h3>Listing profiles with a username containing "<span class="searched-name"><%= params[:search] %></span>":</h3>
   <% end %>
-</ul>
+  <%= render "user_list", users: @users  %>
+</div>
